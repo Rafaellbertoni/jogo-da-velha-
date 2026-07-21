@@ -15,25 +15,86 @@ def paises() -> str:
 def frutas() -> str:
     frutas = ["banana", "morango", "abacaxi", "melancia", "uva", "maca", "laranja", "manga", "abacate", "mamao", "pera", "kiwi", "limao", "goiaba", "caju", "acerola", "maracuja", "ameixa", "pessego", "coco", "figo", "framboesa", "amora", "jaca", "tangerina", "melao", "carambola", "graviola", "pitaya", "romã"]
     palavra_secreta = random.choice(frutas)
+    
+    return palavra_secreta
 
 def main():
     continuar = True
     while continuar:
         print('[animais]\n[paises]\n[frutas]')
-        topico = input('qual topico você deseja escolher? ').lower
+        topico = input('qual topico você deseja escolher? ').lower()
         
         if topico == 'animais': 
             palavra_secreta = animais()
             qnts_letras = len(palavra_secreta)
+            mostrar = ['_'] * qnts_letras
+            tentativas = 7
             
             for i in range(5):
-                tentativas = 7
-                print('Palavra: ' + qnts_letras * '_')
+                print('Palavra: ' + ''.join(mostrar))
                 print(f'Tentativas: {tentativas - 1}')
                 letra_usuario = input('digite uma letra: ')
-                for letra in palavra_secreta:
-                    if letra == letra_usuario:
+                for i in range(len(palavra_secreta)):
+                    if mostrar[i] == letra_usuario:
+                        mostrar[i] = letra_usuario
                         
+            continuar2 = input('deseja jogar denovo? S/N ')
+            if continuar2 == 'N':
+                continuar = False
+            elif continuar != 'S':
+                print('Erro: digitação incorreta')
+                continuar = False
+                        
+                        
+        elif topico == 'paises':
+            palavra_secreta = animais()
+            qnts_letras = len(palavra_secreta)
+            mostrar = ['_'] * qnts_letras
+            tentativas = 7
+            
+            for i in range(5):
+                print('Palavra: ' + ''.join(mostrar))
+                print(f'Tentativas: {tentativas - 1}')
+                letra_usuario = input('digite uma letra: ')
+                for i in range(len(palavra_secreta)):
+                    if mostrar[i] == letra_usuario:
+                        mostrar[i] = letra_usuario
+                        
+            continuar2 = input('deseja jogar denovo? S/N ')
+            if continuar2 == 'N':
+                continuar = False
+            elif continuar != 'S':
+                print('Erro: digitação incorreta')
+                continuar = False
+                        
+        
+        
+        elif topico == 'frutas':
+            palavra_secreta = animais()
+            qnts_letras = len(palavra_secreta)
+            mostrar = ['_'] * qnts_letras
+            tentativas = 7
+            
+            for i in range(5):
+                print('Palavra: ' + ''.join(mostrar))
+                print(f'Tentativas: {tentativas - 1}')
+                letra_usuario = input('digite uma letra: ')
+                for i in range(len(palavra_secreta)):
+                    if mostrar[i] == letra_usuario:
+                        mostrar[i] = letra_usuario
+                        
+            continuar2 = input('deseja jogar denovo? S/N ')
+            if continuar2 == 'N':
+                continuar = False
+            elif continuar != 'S':
+                print('Erro: digitação incorreta')
+                continuar = False
+                        
+            
+        else:
+            print('Erro: topico não encontrado')
+                        
+print(main())
                 
         
     
