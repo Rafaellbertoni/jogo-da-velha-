@@ -31,15 +31,31 @@ def main():
             tentativas = 7
             
             for i in range(6):
-                print('Palavra: ' + " ".join(mostrar))
+                print('Palavra: ' + ' '.join(mostrar))
                 print(f'Tentativas: {tentativas - 1}')
-                letra_usuario = input('digite uma letra: ')
-                for i, letra in enumerate(palavra_secreta):
-                    if letra_usuario == letra:
-                        mostrar[i] = letra_usuario
-                tentativas -= 1
+                letra_palavra_usuario = input('digite uma letra ou palavra: ')
                 
-            print(f'a palavra era: {palavra_secreta}')
+                if len(letra_palavra_usuario) == 1:
+                    if letra_palavra_usuario in palavra_secreta:
+                        for pos, letra in enumerate(palavra_secreta):
+                            if letra_palavra_usuario == letra:
+                                mostrar[pos] = letra_palavra_usuario
+                    else:
+                        tentativas -= 1
+                else:
+                    if letra_palavra_usuario != palavra_secreta:
+                        tentativas -= 1
+                    else:
+                        for pos, letra in enumerate(letra_palavra_usuario):
+                            mostrar[pos] = letra
+
+                if '_' not in mostrar:
+                    print('Parabéns, você venceu!')
+                    break
+
+                if tentativas <= 0:
+                    print(f'Você perdeu! A palavra era: {palavra_secreta}')
+                    break
                                  
             continuar2 = input('deseja jogar denovo? S/N ')
             if continuar2 == 'N':
@@ -58,13 +74,30 @@ def main():
             for i in range(6):
                 print('Palavra: ' + ' '.join(mostrar))
                 print(f'Tentativas: {tentativas - 1}')
-                letra_usuario = input('digite uma letra: ')
-                for i, letra in enumerate(palavra_secreta):
-                    if letra_usuario == letra:
-                        mostrar[i] = letra_usuario
-                tentativas -= 1
-            
-            print(f'a palavra era: {palavra_secreta}')
+                letra_palavra_usuario = input('digite uma letra ou palavra: ')
+                
+                if len(letra_palavra_usuario) == 1:
+                    if letra_palavra_usuario in palavra_secreta:
+                        for pos, letra in enumerate(palavra_secreta):
+                            if letra_palavra_usuario == letra:
+                                mostrar[pos] = letra_palavra_usuario
+                    else:
+                        tentativas -= 1
+                else:
+                    if letra_palavra_usuario != palavra_secreta:
+                        tentativas -= 1
+                    else:
+                        for pos, letra in enumerate(letra_palavra_usuario):
+                            mostrar[pos] = letra
+
+                if '_' not in mostrar:
+                    print('Parabéns, você venceu!')
+                    break
+
+                if tentativas <= 0:
+                    print(f'Você perdeu! A palavra era: {palavra_secreta}')
+                    break
+                                
                         
             continuar2 = input('deseja jogar denovo? S/N ')
             if continuar2 == 'N':
@@ -83,13 +116,29 @@ def main():
             for i in range(6):
                 print('Palavra: ' + ' '.join(mostrar))
                 print(f'Tentativas: {tentativas - 1}')
-                letra_usuario = input('digite uma letra: ')
-                for i, letra in enumerate(palavra_secreta):
-                    if letra_usuario == letra:
-                        mostrar[i] = letra_usuario
-                tentativas -= 1
+                letra_palavra_usuario = input('digite uma letra ou palavra: ')
                 
-            print(f'a palavra era: {palavra_secreta}')
+                if len(letra_palavra_usuario) == 1:
+                    if letra_palavra_usuario in palavra_secreta:
+                        for pos, letra in enumerate(palavra_secreta):
+                            if letra_palavra_usuario == letra:
+                                mostrar[pos] = letra_palavra_usuario
+                    else:
+                        tentativas -= 1
+                else:
+                    if letra_palavra_usuario != palavra_secreta:
+                        tentativas -= 1
+                    else:
+                        for pos, letra in enumerate(letra_palavra_usuario):
+                            mostrar[pos] = letra
+
+                if '_' not in mostrar:
+                    print('Parabéns, você venceu!')
+                    break
+
+                if tentativas <= 0:
+                    print(f'Você perdeu! A palavra era: {palavra_secreta}')
+                    break
                         
             continuar2 = input('deseja jogar denovo? S/N ')
             if continuar2 == 'N':
