@@ -1,5 +1,71 @@
 import random
 
+forca = [
+    """
+     +---+
+     |   |
+         |
+         |
+         |
+         |
+    =========
+    """,
+    """
+     +---+
+     |   |
+     O   |
+         |
+         |
+         |
+    =========
+    """,
+    """
+     +---+
+     |   |
+     O   |
+     |   |
+         |
+         |
+    =========
+    """,
+    """
+     +---+
+     |   |
+     O   |
+    /|   |
+         |
+         |
+    =========
+    """,
+    """
+     +---+
+     |   |
+     O   |
+    /|\\  |
+         |
+         |
+    =========
+    """,
+    """
+     +---+
+     |   |
+     O   |
+    /|\\  |
+    /    |
+         |
+    =========
+    """,
+    """
+     +---+
+     |   |
+     O   |
+    /|\\  |
+    / \\  |
+         |
+    =========
+    """
+]
+
 def animais() -> str:
     animais = ["cachorro", "gato", "elefante", "girafa", "leao", "tigre", "macaco", "cavalo", "coelho", "urso", "lobo", "raposa", "zebra", "canguru", "pinguim", "golfinho", "tartaruga", "crocodilo", "hipopotamo", "rinoceronte", "jacare", "tucano", "arara", "onca", "preguica", "morcego", "esquilo", "camelo", "avestruz", "gorila"]
     palavra_secreta = random.choice(animais)
@@ -24,13 +90,16 @@ def main():
         print('[animais]\n[paises]\n[frutas]')
         topico = input('qual topico você deseja escolher? ').lower()
         
+        #PRIMEIRO TOPICO
         if topico == 'animais': 
             palavra_secreta = animais()
             qnts_letras = len(palavra_secreta)
             mostrar = ['_'] * qnts_letras
             tentativas = 7
             
-            for i in range(6):
+            while tentativas > 0:
+                erros = 7 - tentativas
+                print(forca[erros])
                 print('Palavra: ' + ' '.join(mostrar))
                 print(f'Tentativas: {tentativas - 1}')
                 letra_palavra_usuario = input('digite uma letra ou palavra: ')
@@ -54,6 +123,7 @@ def main():
                     break
 
                 if tentativas <= 0:
+                    print(forca[6])
                     print(f'Você perdeu! A palavra era: {palavra_secreta}')
                     break
                                  
@@ -64,14 +134,16 @@ def main():
                 print('Erro: digitação incorreta')
                 continuar = False
                         
-                        
+        #SEGUNDO TOPICO            
         elif topico == 'paises':
             palavra_secreta = paises()
             qnts_letras = len(palavra_secreta)
             mostrar = ['_'] * qnts_letras
             tentativas = 7
             
-            for i in range(6):
+            while tentativas > 0:
+                erros = 7 - tentativas
+                print(forca[erros])
                 print('Palavra: ' + ' '.join(mostrar))
                 print(f'Tentativas: {tentativas - 1}')
                 letra_palavra_usuario = input('digite uma letra ou palavra: ')
@@ -95,6 +167,7 @@ def main():
                     break
 
                 if tentativas <= 0:
+                    print(forca[6])
                     print(f'Você perdeu! A palavra era: {palavra_secreta}')
                     break
                                 
@@ -106,14 +179,16 @@ def main():
                 print('Erro: digitação incorreta')
                         
         
-        
+        #TERCEIRO TOPICO
         elif topico == 'frutas':
             palavra_secreta = frutas()
             qnts_letras = len(palavra_secreta)
             mostrar = ['_'] * qnts_letras
             tentativas = 7
             
-            for i in range(6):
+            while tentativas > 0:
+                erros = 7 - tentativas
+                print(forca[erros])
                 print('Palavra: ' + ' '.join(mostrar))
                 print(f'Tentativas: {tentativas - 1}')
                 letra_palavra_usuario = input('digite uma letra ou palavra: ')
@@ -137,6 +212,7 @@ def main():
                     break
 
                 if tentativas <= 0:
+                    print(forca[6])
                     print(f'Você perdeu! A palavra era: {palavra_secreta}')
                     break
                         
@@ -146,12 +222,10 @@ def main():
             elif continuar != 'S':
                 print('Erro: digitação incorreta')
                 continuar = False
+          
                         
-            
+        #TOPICO NAO ENCONTRADO    
         else:
             print('Erro: topico não encontrado')
                         
-print(main())
-                
-        
-    
+main()
