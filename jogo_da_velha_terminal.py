@@ -30,14 +30,17 @@ def main():
             mostrar = ['_'] * qnts_letras
             tentativas = 7
             
-            for i in range(5):
-                print('Palavra: ' + ''.join(mostrar))
+            for i in range(6):
+                print('Palavra: ' + " ".join(mostrar))
                 print(f'Tentativas: {tentativas - 1}')
                 letra_usuario = input('digite uma letra: ')
-                for i in range(len(palavra_secreta)):
-                    if mostrar[i] == letra_usuario:
+                for i, letra in enumerate(palavra_secreta):
+                    if letra_usuario == letra:
                         mostrar[i] = letra_usuario
-                        
+                tentativas -= 1
+                
+            print(f'a palavra era: {palavra_secreta}')
+                                 
             continuar2 = input('deseja jogar denovo? S/N ')
             if continuar2 == 'N':
                 continuar = False
@@ -47,41 +50,46 @@ def main():
                         
                         
         elif topico == 'paises':
-            palavra_secreta = animais()
+            palavra_secreta = paises()
             qnts_letras = len(palavra_secreta)
             mostrar = ['_'] * qnts_letras
             tentativas = 7
             
-            for i in range(5):
-                print('Palavra: ' + ''.join(mostrar))
+            for i in range(6):
+                print('Palavra: ' + ' '.join(mostrar))
                 print(f'Tentativas: {tentativas - 1}')
                 letra_usuario = input('digite uma letra: ')
-                for i in range(len(palavra_secreta)):
-                    if mostrar[i] == letra_usuario:
+                for i, letra in enumerate(palavra_secreta):
+                    if letra_usuario == letra:
                         mostrar[i] = letra_usuario
+                tentativas -= 1
+            
+            print(f'a palavra era: {palavra_secreta}')
                         
             continuar2 = input('deseja jogar denovo? S/N ')
             if continuar2 == 'N':
                 continuar = False
             elif continuar != 'S':
                 print('Erro: digitação incorreta')
-                continuar = False
                         
         
         
         elif topico == 'frutas':
-            palavra_secreta = animais()
+            palavra_secreta = frutas()
             qnts_letras = len(palavra_secreta)
             mostrar = ['_'] * qnts_letras
             tentativas = 7
             
-            for i in range(5):
-                print('Palavra: ' + ''.join(mostrar))
+            for i in range(6):
+                print('Palavra: ' + ' '.join(mostrar))
                 print(f'Tentativas: {tentativas - 1}')
                 letra_usuario = input('digite uma letra: ')
-                for i in range(len(palavra_secreta)):
-                    if mostrar[i] == letra_usuario:
+                for i, letra in enumerate(palavra_secreta):
+                    if letra_usuario == letra:
                         mostrar[i] = letra_usuario
+                tentativas -= 1
+                
+            print(f'a palavra era: {palavra_secreta}')
                         
             continuar2 = input('deseja jogar denovo? S/N ')
             if continuar2 == 'N':
